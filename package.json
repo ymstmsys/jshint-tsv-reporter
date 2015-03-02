@@ -1,0 +1,17 @@
+{
+  "name": "jshint-tsv-reporter",
+  "version": "1.0.0",
+  "description": "TSV format reporter for JSHint.",
+  "keywords": [
+    "jshint",
+    "reporter",
+    "tsv"
+  ],
+  "license": "MIT",
+  "author": "Masayoshi Yamashita <ymstmsys@gmail.com>",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ymstmsys/jshint-tsv-reporter.git"
+  }
+}
