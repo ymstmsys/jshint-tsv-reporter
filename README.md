@@ -22,25 +22,41 @@ jshint --reporter node_modules/jshint-tsv-reporter/reporter.js file.js
 
 ```js
 grunt.initConfig({
-	jshint: {
-		options: {
-			reporter: require('jshint-tsv-reporter'),
-			reporterOutput: 'jshint-report.tsv'
-		},
-		target: ['file.js']
-	}
+  jshint: {
+    options: {
+      reporter: require('jshint-tsv-reporter'),
+      reporterOutput: 'jshint-report.tsv',
+      locale: 'en'
+    },
+    target: ['file.js']
+  }
 });
 
 grunt.loadNpmTasks('grunt-contrib-jshint');
 grunt.registerTask('default', ['jshint']);
 ```
 
+## Options (not available in CLI)
+
+### locale
+
+Type: String  
+Default: null
+
+Locale of TSV header line.
+Support the following locale.
+
+* en (English) (default)
+* ja (Japanese)
+
+
 ## Example output
 
 ```
-File	Code	Line	Column	Reason
+File	Code	Line	Character	Reason
 reporter.js	W097	1	1	Use the function form of "use strict".
 reporter.js	W117	3	1	'module' is not defined.
 reporter.js	W117	7	5	'process' is not defined.
 reporter.js	W117	12	7	'process' is not defined.
 ```
+

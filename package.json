@@ -1,6 +1,6 @@
 {
   "name": "jshint-tsv-reporter",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "TSV format reporter for JSHint.",
   "keywords": [
     "jshint",
