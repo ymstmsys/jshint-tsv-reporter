@@ -24,6 +24,7 @@ jshint --reporter node_modules/jshint-tsv-reporter/reporter.js file.js
 grunt.initConfig({
   jshint: {
     options: {
+      jshintrc : '.jshintrc',
       reporter: require('jshint-tsv-reporter'),
       reporterOutput: 'jshint-report.tsv',
       locale: 'en'
@@ -35,6 +36,20 @@ grunt.initConfig({
 grunt.loadNpmTasks('grunt-contrib-jshint');
 grunt.registerTask('default', ['jshint']);
 ```
+
+### [gulp-jshint](https://github.com/spalger/gulp-jshint)
+
+```js
+gulp.task('jshint', function() {
+  return gulp.src([ 'file.js' ])
+    .pipe(jshint('.jshintrc'))
+    .pipe(jshint.reporter('jshint-tsv-reporter', {
+      locale: 'en'
+    })
+  );
+});
+```
+
 
 ## Options (not available in CLI)
 
