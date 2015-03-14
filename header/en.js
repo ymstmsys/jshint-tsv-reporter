@@ -3,5 +3,6 @@ module.exports = [
   'Code',
   'Line',
   'Character',
-  'Reason'
+  'Reason',
+  'Evidence'
 ];

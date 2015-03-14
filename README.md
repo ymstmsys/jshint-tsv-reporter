@@ -41,13 +41,22 @@ grunt.registerTask('default', ['jshint']);
 ### locale
 
 Type: String  
-Default: null
+Default: undefined
 
 Locale of TSV header line.
 Support the following locale.
 
 * en (English) (default)
 * ja (Japanese)
+
+### truncateEvidence
+
+Type: Number  
+Default: undefined
+
+If set to positive number, evidence is truncated to the number of characters.  
+If set undefined or null, whole evidence is output.  
+If set to 0 or negative number, evidence is not output.
 
 
 ## Example output
