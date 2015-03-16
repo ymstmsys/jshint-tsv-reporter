@@ -22,21 +22,25 @@ module.exports = {
       header = require('./header/en');
     }
 
+    var value = [ header.file, header.code, header.line, header.character, header.reason ];
     if (truncateEvidence === undefined || truncateEvidence === null || truncateEvidence > 0) {
-      process.stdout.write(header.join('\t') + '\n');
-    } else {
-      process.stdout.write(header.slice(0, 5).join('\t') + '\n');
+      value.push(header.evidence);
     }
+    process.stdout.write(value.join('\t') + '\n');
 
     // Result
     results.forEach(function(result) {
       var error = result.error;
       var value = [ result.file, error.code, error.line, error.character, error.reason ];
 
+      var evidence;
       if (truncateEvidence === undefined || truncateEvidence === null) {
-        value.push(error.evidence);
+        evidence = error.evidence;
       } else if (truncateEvidence > 0) {
-        value.push(error.evidence.substring(0, truncateEvidence));
+        evidence = error.evidence.substring(0, truncateEvidence);
+      }
+      if (evidence) {
+        value.push(evidence.replace(/\t/g, ' ').trim());
       }
 
       process.stdout.write(value.join('\t') + '\n');

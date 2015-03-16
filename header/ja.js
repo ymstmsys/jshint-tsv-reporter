@@ -1,8 +1,8 @@
-module.exports = [
-  'ファイル',
-  'コード',
-  '行',
-  '文字',
-  '理由',
-  'エビデンス'
-];
+module.exports = {
+  file : 'ファイル',
+  code : 'コード',
+  line : '行',
+  character : '文字',
+  reason : '理由',
+  evidence : 'エビデンス'
+};
