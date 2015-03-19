@@ -68,6 +68,26 @@ Support the following locale.
 * en (English) (default)
 * ja (Japanese)
 
+### header
+
+Type: Object  
+Default: undefined
+
+Set any header names.
+This option is prior to locale option.
+
+For example:
+```
+header: {
+  file : 'File',
+  code : 'Code',
+  line : 'Line',
+  character : 'Character',
+  reason : 'Reason',
+  evidence : 'Evidence'
+}
+```
+
 ### truncateEvidence
 
 Type: Number  

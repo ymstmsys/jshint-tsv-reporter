@@ -4,9 +4,10 @@ module.exports = {
 
   reporter : function(results, data, options) {
     // Options
-    var locale = options.locale;
-    var truncateEvidence = options.truncateEvidence;
     var newline = options.newline;
+    var locale = options.locale;
+    var headerOptions = options.header;
+    var truncateEvidence = options.truncateEvidence;
 
     if (!newline) {
       newline = require('os').EOL;
@@ -25,6 +26,13 @@ module.exports = {
     }
     if (!header) {
       header = require('./header/en');
+    }
+    if (headerOptions) {
+      for ( var attr in headerOptions) {
+        if (headerOptions.hasOwnProperty(attr)) {
+          header[attr] = headerOptions[attr];
+        }
+      }
     }
 
     var value = [ header.file, header.code, header.line, header.character, header.reason ];
