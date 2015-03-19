@@ -26,8 +26,7 @@ grunt.initConfig({
     options: {
       jshintrc : '.jshintrc',
       reporter: require('jshint-tsv-reporter'),
-      reporterOutput: 'jshint-report.tsv',
-      locale: 'en'
+      reporterOutput: 'jshint-report.txt'
     },
     target: ['file.js']
   }
@@ -43,9 +42,7 @@ grunt.registerTask('default', ['jshint']);
 gulp.task('jshint', function() {
   return gulp.src([ 'file.js' ])
     .pipe(jshint('.jshintrc'))
-    .pipe(jshint.reporter('jshint-tsv-reporter', {
-      locale: 'en'
-    })
+    .pipe(jshint.reporter('jshint-tsv-reporter')
   );
 });
 ```
@@ -53,10 +50,17 @@ gulp.task('jshint', function() {
 
 ## Options (not available in CLI)
 
+### newline
+
+Type: String  
+Default: depend on operating system
+
+NewLine character. For example: '\n', '\r', '\r\n'
+
 ### locale
 
 Type: String  
-Default: undefined
+Default: 'en'
 
 Locale of TSV header line.
 Support the following locale.

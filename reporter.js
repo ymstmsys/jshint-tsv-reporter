@@ -6,6 +6,11 @@ module.exports = {
     // Options
     var locale = options.locale;
     var truncateEvidence = options.truncateEvidence;
+    var newline = options.newline;
+
+    if (!newline) {
+      newline = require('os').EOL;
+    }
 
     // Header
     var header;
@@ -26,7 +31,7 @@ module.exports = {
     if (truncateEvidence === undefined || truncateEvidence === null || truncateEvidence > 0) {
       value.push(header.evidence);
     }
-    process.stdout.write(value.join('\t') + '\n');
+    process.stdout.write(value.join('\t') + newline);
 
     // Result
     results.forEach(function(result) {
@@ -43,7 +48,7 @@ module.exports = {
         value.push(evidence.replace(/\t/g, ' ').trim());
       }
 
-      process.stdout.write(value.join('\t') + '\n');
+      process.stdout.write(value.join('\t') + newline);
     });
   }
 
